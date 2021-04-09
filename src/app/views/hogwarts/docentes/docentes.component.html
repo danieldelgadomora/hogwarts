@@ -1,0 +1,23 @@
+<p-panel header="Docentes">
+	<div class="col-sm-12">
+    <div class='pull-right'>
+        <button class="btn btnSave ng-binding" (click)="modalAddEstudiante(addEstudiante)">
+          <i class="fa fa-user-plus iconAdd" aria-hidden="true"></i>
+          Adicionar docentes
+        </button>
+    </div>
+    <br>
+    <app-tabla-info [infoPer]="docentes"></app-tabla-info>
+	</div>
+
+</p-panel>
+
+<ng-template #addEstudiante>
+	<div class="modal-header">
+		<label class="letra">Adicionar docente</label>
+	</div>
+  <app-modal-add [modalRef]="modalRef" [docentes]="docentes" #infoPer></app-modal-add>
+</ng-template>
+
+
+

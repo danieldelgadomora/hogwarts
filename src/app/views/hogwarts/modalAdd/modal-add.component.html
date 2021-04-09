@@ -1,0 +1,45 @@
+<div class="modal-body">
+  <div class="col-sm-12">
+    <form [formGroup]="formAdd" class="form-vertical">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+              <label>Nombre</label>
+              <input formControlName="name" name="nombre" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+              <label>Patronus</label>
+              <input formControlName="patronus" name="patronus" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+              <label>Fecha de nacimiento</label>
+              <input type="text" class="form-control" name="dateOfBirth" bsDatepicker formControlName="dateOfBirth" >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12" *ngIf="msgReq">
+         <p style="color: red;">*Todos los campos son queridos</p>
+      </div>
+    </form>
+  <div>
+</div>
+<div class="modal-footer">
+  <div class="pull-right">
+    <button type="button" class="btn btnSave" (click)="btnAdd()">
+      <i class="fa fa-check-circle iconAdd" aria-hidden="true"></i>
+      Adicionar
+    </button>
+    <button type="button" class="btn btnCancel" (click)="modalRef.hide()">
+      <i class="fa fa-times-circle iconCan" aria-hidden="true"></i>
+      Cancelar
+    </button>
+  </div>
+</div>
+

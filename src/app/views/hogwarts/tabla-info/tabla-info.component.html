@@ -1,0 +1,33 @@
+<p-table #dt [value]="infoPer">
+  <ng-template pTemplate="header">
+      <tr>
+          <th pSortableColumn="name">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+          <th pSortableColumn="patronus">Patronus <p-sortIcon field="patronus"></p-sortIcon></th>
+          <th pSortableColumn="age">Edad <p-sortIcon field="age"></p-sortIcon></th>
+          <th>Imágen</th>
+      </tr>
+      <tr>
+        <th>
+          <input class="form-control" pInputText type="text" (input)="dt.filter($event.target.value,'name', 'contains')">
+        </th>
+        <th>
+          <input class="form-control" pInputText type="text" (input)="dt.filter($event.target.value,'patronus', 'contains')">
+        </th>
+        <th>
+          <input class="form-control" pInputText type="text" (input)="dt.filter($event.target.value,'age', 'contains')">
+        </th>
+        <th></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-personaje>
+      <tr>
+          <td>{{personaje.name}}</td>
+          <td>{{personaje.patronus}}</td>
+          <td>{{personaje.age}}</td>
+          <td *ngIf="personaje.image != ''"><img [src]="personaje.image" [alt]="personaje.name" width="100" class="p-shadow-4" /></td>
+          <td *ngIf="personaje.image == ''"><img src="assets/img/avatar.png" [alt]="personaje.name" width="100" class="p-shadow-4" /></td>
+      </tr>
+  </ng-template>
+</p-table>
+
+

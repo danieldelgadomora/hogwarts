@@ -1,0 +1,24 @@
+<p-panel header="Sección de personajes">
+	<div class="col-sm-12">
+		<form [formGroup]="formCasa" class="form-vertical">
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+          <mat-form-field appearance="fill">
+            <mat-label>Casas</mat-label>
+            <mat-select formControlName="casa" (selectionChange)="selectCasa()">
+              <mat-option *ngFor="let casa of casas" [value]="casa.nombre">
+                {{casa.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+				</div>
+			</div>
+		</form>
+		<br>
+		<div class="col-sm-12" *ngIf="personajes?.length>0">
+      <app-tabla-info [infoPer]="personajes"></app-tabla-info>
+		</div>
+	</div>
+</p-panel>
+
+
